@@ -1,0 +1,33 @@
+# 从 https://github.com/unif-design/.github/blob/2a6e991697447f91127664eafb7aea80d5751194/templates/workflows/ci.yml 提取工作流语法检查。
+# 本检查不执行 ArkTS 编译、HAR 构建、设备验证或发布。
+name: 仓库检查
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: 检查工作流
+        env:
+          ACTIONLINT_VERSION: 1.7.12
+        run: |
+          curl -sSfL "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz" | tar -xz actionlint
+          shellcheck --version
+          ./actionlint -color -shellcheck=shellcheck
