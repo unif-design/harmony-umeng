@@ -1,0 +1,14 @@
+{
+  "name": "@unif/harmony-umeng",
+  "version": "0.0.0",
+  "description": "原生鸿蒙 HAR 工程骨架，尚无公开能力，不用于发布",
+  "main": "Index.ts",
+  "author": {
+    "name": "unif-design",
+    "email": "382724935@qq.com",
+    "url": "https://github.com/unif-design"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "repository": "https://github.com/unif-design/harmony-umeng"
+}
