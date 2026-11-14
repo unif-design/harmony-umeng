@@ -3,7 +3,7 @@
 本仓库面向 HarmonyOS 7.0.0／API 26，职责为友盟初始化、统计与分享。使用中文交流。
 
 - 先读取 [README.md](README.md) 的当前状态。当前范围为仓库治理与无公开能力的 HAR 工程骨架，功能开发保持暂停；恢复实现须有用户明确要求。
-- 实施前用 `unif-harmony-dev` 核对鸿蒙工程范围和目录。库能力插件 `unif-library-skills` 中的 `unif-umeng` 提供本库原生契约（`references/harmony/umeng.md`）和当前 HAR 入口。技能按当前会话实际加载的名称引用，不锁定插件缓存路径或版本。
+- 实施前用 `unif-harmony-dev` 核对鸿蒙工程范围和目录。从[Unif 技能市场](https://github.com/unif-skill/unif-portal-dev-skills#安装与使用)安装 `unif-umeng` 插件，可查阅本库原生契约（`references/harmony/umeng.md`）和当前 HAR 入口。技能按当前会话实际加载的名称引用，不锁定插件缓存路径或版本。
 - 设计、测试、审查和交付按需采用 `unif-architecture-design`、`unif-harmony-test`、`unif-harmony-review`、`unif-code-delivery`，复用已有有效契约。
 - RN 只提供行为和资源参考，不能据此调用原生鸿蒙 API。恢复开发时核实目标 SDK、公开入口、真实消费者和依赖，优先复用现有能力。
 - 空 HAR 仅验证工程配置与打包，不作为功能验收或发布候选；不增加假 API、占位组件或应用示例。新增权限、外部服务、SDK runner、凭据和发布接线须在明确授权范围内。
